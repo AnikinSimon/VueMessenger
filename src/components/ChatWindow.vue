@@ -2,7 +2,7 @@
     <div class="chat-window">
     <div class="chat-messages">
       <div class="scroll-wrapper">
-        <ChatMessage></ChatMessage> 
+        <slot></slot>    
       </div>
     </div>
     <div class="chat-send-panel">
@@ -16,7 +16,6 @@
 </template>
   
 <script>
-    import ChatMessage from './components/ChatMessage.vue'
   export default {
     name: 'ChatWindow'
   }

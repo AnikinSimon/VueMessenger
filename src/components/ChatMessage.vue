@@ -1,9 +1,9 @@
 <template>
     <div class="chat-message">
     <div class="info">
-        {{ username }} {{ datetime }}
+        {{ username }} {{ time }}
     </div>
-    <slot></slot>
+    <slot>Hello, World!!!</slot>
     </div>
 </template>
   
@@ -12,7 +12,7 @@
     name: 'ChatMessage',
     props: {
         username: String,
-        datetime: Date
+        time: String
     }
   }
 </script>
