@@ -1,8 +1,13 @@
 <template>
   <div id="app">
     <Container>
-      <ChatWindow>
-        <ChatMessage username="Ivan" time="21.12.2019 05:00:50">Hello, World!!!</ChatMessage>
+      <ChatWindow @sendMessageEvent="sendMessageData($event)">
+        <ChatMessage v-for="message in messages" 
+        :key="message.id" 
+        :username="message.author" 
+        :time="message.datetime">
+        {{ message.text }}
+      </ChatMessage>
       </ChatWindow>
     </Container>
   </div>
@@ -18,6 +23,35 @@
       Container,
       ChatMessage,
       ChatWindow
+    },
+    data(){
+      return {
+        messages: []
+      }
+    },
+    methods:{
+      getMessagerData(){
+        this.axios.get('https://61bcd385d8542f0017824a2a.mockapi.io/messages')
+          .then((response)=>{
+            this.messages = response.data
+            console.log(this.messages)
+          })
+      },
+      sendMessageData(data){
+        this.axios( {
+            method: 'post',
+            url: "https://61bcd385d8542f0017824a2a.mockapi.io/messages",
+            data: {
+                author: data.username,
+                text: data.messageText
+            }
+        }).then((response) => {
+            console.log(response)
+        })
+      }
+    },
+    mounted(){
+      this.getMessagerData();
     }
   }
 </script>
