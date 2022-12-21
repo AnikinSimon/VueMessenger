@@ -3,14 +3,14 @@
 </template>
 
 <script>
-import MyContainer from './components/Container.vue'
+  import MyContainer from './components/Container.vue'
 
-export default {
-  name: 'App',
-  components: {
-    MyContainer
+  export default {
+    name: 'App',
+    components: {
+      MyContainer
+    }
   }
-}
 </script>
 
 <style>
