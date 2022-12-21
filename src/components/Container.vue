@@ -10,7 +10,7 @@
   }
 </script>
 
-<style scoped>
+<style>
     .container {
         width: 764px;
         margin: auto;
